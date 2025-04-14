@@ -116,7 +116,6 @@ void method Draw(GameRef this)
         break;
 
     case GameStateRunning:
-        // SetDrawColors(0x0312);
         Draw(this->player);
         break;
 

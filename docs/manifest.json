@@ -1,16 +1,16 @@
 {
-    "name":"DumbGame",
-    "short_name":"DumbGame",
+    "name":"Shmup Wars",
+    "short_name":"shmupwarz",
     "start_url":"index.html",
     "display":"standalone",
     "background_color":"#5900b3",
     "theme_color":"black",
     "scope": ".",
-    "description":"dumb game with crappy art",
+    "description":"Give Me Those Shmup Wars",
     "orientation": "portrait-primary",
     "icons":[
       {
-      "src":"DumbGame.png",                    
+      "src":"Shmupwarz.png",                    
       "sizes":"256x256",
       "type":"image/png"
       }

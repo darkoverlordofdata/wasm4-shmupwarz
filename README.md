@@ -1,4 +1,4 @@
-# dumbgame
+# shmupwarz
 
 __as seen on bluesky__
 

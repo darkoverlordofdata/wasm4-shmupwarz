@@ -21,11 +21,11 @@
       "-I/opt/wasi-sdk/share/wasi-sysroot/include/wasm32-wasi/",
       "-o",
       "build/clock.o",
-      "src/clock.c"
+      "Source/clock.c"
     ],
-    "directory": "/home/darko/Documents/GitHub/dumbgame",
-    "file": "/home/darko/Documents/GitHub/dumbgame/src/clock.c",
-    "output": "/home/darko/Documents/GitHub/dumbgame/build/clock.o"
+    "directory": "/home/darko/Documents/GitHub/wasm4-shmupwarz",
+    "file": "/home/darko/Documents/GitHub/wasm4-shmupwarz/Source/clock.c",
+    "output": "/home/darko/Documents/GitHub/wasm4-shmupwarz/build/clock.o"
   },
   {
     "arguments": [
@@ -49,11 +49,11 @@
       "-I/opt/wasi-sdk/share/wasi-sysroot/include/wasm32-wasi/",
       "-o",
       "build/config.o",
-      "src/config.c"
+      "Source/config.c"
     ],
-    "directory": "/home/darko/Documents/GitHub/dumbgame",
-    "file": "/home/darko/Documents/GitHub/dumbgame/src/config.c",
-    "output": "/home/darko/Documents/GitHub/dumbgame/build/config.o"
+    "directory": "/home/darko/Documents/GitHub/wasm4-shmupwarz",
+    "file": "/home/darko/Documents/GitHub/wasm4-shmupwarz/Source/config.c",
+    "output": "/home/darko/Documents/GitHub/wasm4-shmupwarz/build/config.o"
   },
   {
     "arguments": [
@@ -77,11 +77,11 @@
       "-I/opt/wasi-sdk/share/wasi-sysroot/include/wasm32-wasi/",
       "-o",
       "build/game.o",
-      "src/game.c"
+      "Source/game.c"
     ],
-    "directory": "/home/darko/Documents/GitHub/dumbgame",
-    "file": "/home/darko/Documents/GitHub/dumbgame/src/game.c",
-    "output": "/home/darko/Documents/GitHub/dumbgame/build/game.o"
+    "directory": "/home/darko/Documents/GitHub/wasm4-shmupwarz",
+    "file": "/home/darko/Documents/GitHub/wasm4-shmupwarz/Source/game.c",
+    "output": "/home/darko/Documents/GitHub/wasm4-shmupwarz/build/game.o"
   },
   {
     "arguments": [
@@ -105,11 +105,11 @@
       "-I/opt/wasi-sdk/share/wasi-sysroot/include/wasm32-wasi/",
       "-o",
       "build/main.o",
-      "src/main.c"
+      "Source/main.c"
     ],
-    "directory": "/home/darko/Documents/GitHub/dumbgame",
-    "file": "/home/darko/Documents/GitHub/dumbgame/src/main.c",
-    "output": "/home/darko/Documents/GitHub/dumbgame/build/main.o"
+    "directory": "/home/darko/Documents/GitHub/wasm4-shmupwarz",
+    "file": "/home/darko/Documents/GitHub/wasm4-shmupwarz/Source/main.c",
+    "output": "/home/darko/Documents/GitHub/wasm4-shmupwarz/build/main.o"
   },
   {
     "arguments": [
@@ -132,12 +132,12 @@
       "-flto",
       "-I/opt/wasi-sdk/share/wasi-sysroot/include/wasm32-wasi/",
       "-o",
-      "build/menu.o",
-      "src/menu.c"
+      "build/palette.o",
+      "Source/palette.c"
     ],
-    "directory": "/home/darko/Documents/GitHub/dumbgame",
-    "file": "/home/darko/Documents/GitHub/dumbgame/src/menu.c",
-    "output": "/home/darko/Documents/GitHub/dumbgame/build/menu.o"
+    "directory": "/home/darko/Documents/GitHub/wasm4-shmupwarz",
+    "file": "/home/darko/Documents/GitHub/wasm4-shmupwarz/Source/palette.c",
+    "output": "/home/darko/Documents/GitHub/wasm4-shmupwarz/build/palette.o"
   },
   {
     "arguments": [
@@ -160,12 +160,12 @@
       "-flto",
       "-I/opt/wasi-sdk/share/wasi-sysroot/include/wasm32-wasi/",
       "-o",
-      "build/pet.o",
-      "src/pet.c"
+      "build/player.o",
+      "Source/player.c"
     ],
-    "directory": "/home/darko/Documents/GitHub/dumbgame",
-    "file": "/home/darko/Documents/GitHub/dumbgame/src/pet.c",
-    "output": "/home/darko/Documents/GitHub/dumbgame/build/pet.o"
+    "directory": "/home/darko/Documents/GitHub/wasm4-shmupwarz",
+    "file": "/home/darko/Documents/GitHub/wasm4-shmupwarz/Source/player.c",
+    "output": "/home/darko/Documents/GitHub/wasm4-shmupwarz/build/player.o"
   },
   {
     "arguments": [
@@ -189,11 +189,11 @@
       "-I/opt/wasi-sdk/share/wasi-sysroot/include/wasm32-wasi/",
       "-o",
       "build/splash.o",
-      "src/splash.c"
+      "Source/splash.c"
     ],
-    "directory": "/home/darko/Documents/GitHub/dumbgame",
-    "file": "/home/darko/Documents/GitHub/dumbgame/src/splash.c",
-    "output": "/home/darko/Documents/GitHub/dumbgame/build/splash.o"
+    "directory": "/home/darko/Documents/GitHub/wasm4-shmupwarz",
+    "file": "/home/darko/Documents/GitHub/wasm4-shmupwarz/Source/splash.c",
+    "output": "/home/darko/Documents/GitHub/wasm4-shmupwarz/build/splash.o"
   },
   {
     "arguments": [
@@ -217,11 +217,11 @@
       "-I/opt/wasi-sdk/share/wasi-sysroot/include/wasm32-wasi/",
       "-o",
       "build/corefw/array.o",
-      "src/corefw/array.c"
+      "Source/corefw/array.c"
     ],
-    "directory": "/home/darko/Documents/GitHub/dumbgame",
-    "file": "/home/darko/Documents/GitHub/dumbgame/src/corefw/array.c",
-    "output": "/home/darko/Documents/GitHub/dumbgame/build/corefw/array.o"
+    "directory": "/home/darko/Documents/GitHub/wasm4-shmupwarz",
+    "file": "/home/darko/Documents/GitHub/wasm4-shmupwarz/Source/corefw/array.c",
+    "output": "/home/darko/Documents/GitHub/wasm4-shmupwarz/build/corefw/array.o"
   },
   {
     "arguments": [
@@ -245,11 +245,11 @@
       "-I/opt/wasi-sdk/share/wasi-sysroot/include/wasm32-wasi/",
       "-o",
       "build/corefw/bitvector.o",
-      "src/corefw/bitvector.c"
+      "Source/corefw/bitvector.c"
     ],
-    "directory": "/home/darko/Documents/GitHub/dumbgame",
-    "file": "/home/darko/Documents/GitHub/dumbgame/src/corefw/bitvector.c",
-    "output": "/home/darko/Documents/GitHub/dumbgame/build/corefw/bitvector.o"
+    "directory": "/home/darko/Documents/GitHub/wasm4-shmupwarz",
+    "file": "/home/darko/Documents/GitHub/wasm4-shmupwarz/Source/corefw/bitvector.c",
+    "output": "/home/darko/Documents/GitHub/wasm4-shmupwarz/build/corefw/bitvector.o"
   },
   {
     "arguments": [
@@ -273,11 +273,11 @@
       "-I/opt/wasi-sdk/share/wasi-sysroot/include/wasm32-wasi/",
       "-o",
       "build/corefw/bool.o",
-      "src/corefw/bool.c"
+      "Source/corefw/bool.c"
     ],
-    "directory": "/home/darko/Documents/GitHub/dumbgame",
-    "file": "/home/darko/Documents/GitHub/dumbgame/src/corefw/bool.c",
-    "output": "/home/darko/Documents/GitHub/dumbgame/build/corefw/bool.o"
+    "directory": "/home/darko/Documents/GitHub/wasm4-shmupwarz",
+    "file": "/home/darko/Documents/GitHub/wasm4-shmupwarz/Source/corefw/bool.c",
+    "output": "/home/darko/Documents/GitHub/wasm4-shmupwarz/build/corefw/bool.o"
   },
   {
     "arguments": [
@@ -301,11 +301,11 @@
       "-I/opt/wasi-sdk/share/wasi-sysroot/include/wasm32-wasi/",
       "-o",
       "build/corefw/box.o",
-      "src/corefw/box.c"
+      "Source/corefw/box.c"
     ],
-    "directory": "/home/darko/Documents/GitHub/dumbgame",
-    "file": "/home/darko/Documents/GitHub/dumbgame/src/corefw/box.c",
-    "output": "/home/darko/Documents/GitHub/dumbgame/build/corefw/box.o"
+    "directory": "/home/darko/Documents/GitHub/wasm4-shmupwarz",
+    "file": "/home/darko/Documents/GitHub/wasm4-shmupwarz/Source/corefw/box.c",
+    "output": "/home/darko/Documents/GitHub/wasm4-shmupwarz/build/corefw/box.o"
   },
   {
     "arguments": [
@@ -329,11 +329,11 @@
       "-I/opt/wasi-sdk/share/wasi-sysroot/include/wasm32-wasi/",
       "-o",
       "build/corefw/cfstring.o",
-      "src/corefw/cfstring.c"
+      "Source/corefw/cfstring.c"
     ],
-    "directory": "/home/darko/Documents/GitHub/dumbgame",
-    "file": "/home/darko/Documents/GitHub/dumbgame/src/corefw/cfstring.c",
-    "output": "/home/darko/Documents/GitHub/dumbgame/build/corefw/cfstring.o"
+    "directory": "/home/darko/Documents/GitHub/wasm4-shmupwarz",
+    "file": "/home/darko/Documents/GitHub/wasm4-shmupwarz/Source/corefw/cfstring.c",
+    "output": "/home/darko/Documents/GitHub/wasm4-shmupwarz/build/corefw/cfstring.o"
   },
   {
     "arguments": [
@@ -357,11 +357,11 @@
       "-I/opt/wasi-sdk/share/wasi-sysroot/include/wasm32-wasi/",
       "-o",
       "build/corefw/class.o",
-      "src/corefw/class.c"
+      "Source/corefw/class.c"
     ],
-    "directory": "/home/darko/Documents/GitHub/dumbgame",
-    "file": "/home/darko/Documents/GitHub/dumbgame/src/corefw/class.c",
-    "output": "/home/darko/Documents/GitHub/dumbgame/build/corefw/class.o"
+    "directory": "/home/darko/Documents/GitHub/wasm4-shmupwarz",
+    "file": "/home/darko/Documents/GitHub/wasm4-shmupwarz/Source/corefw/class.c",
+    "output": "/home/darko/Documents/GitHub/wasm4-shmupwarz/build/corefw/class.o"
   },
   {
     "arguments": [
@@ -385,11 +385,11 @@
       "-I/opt/wasi-sdk/share/wasi-sysroot/include/wasm32-wasi/",
       "-o",
       "build/corefw/double.o",
-      "src/corefw/double.c"
+      "Source/corefw/double.c"
     ],
-    "directory": "/home/darko/Documents/GitHub/dumbgame",
-    "file": "/home/darko/Documents/GitHub/dumbgame/src/corefw/double.c",
-    "output": "/home/darko/Documents/GitHub/dumbgame/build/corefw/double.o"
+    "directory": "/home/darko/Documents/GitHub/wasm4-shmupwarz",
+    "file": "/home/darko/Documents/GitHub/wasm4-shmupwarz/Source/corefw/double.c",
+    "output": "/home/darko/Documents/GitHub/wasm4-shmupwarz/build/corefw/double.o"
   },
   {
     "arguments": [
@@ -413,11 +413,11 @@
       "-I/opt/wasi-sdk/share/wasi-sysroot/include/wasm32-wasi/",
       "-o",
       "build/corefw/int.o",
-      "src/corefw/int.c"
+      "Source/corefw/int.c"
     ],
-    "directory": "/home/darko/Documents/GitHub/dumbgame",
-    "file": "/home/darko/Documents/GitHub/dumbgame/src/corefw/int.c",
-    "output": "/home/darko/Documents/GitHub/dumbgame/build/corefw/int.o"
+    "directory": "/home/darko/Documents/GitHub/wasm4-shmupwarz",
+    "file": "/home/darko/Documents/GitHub/wasm4-shmupwarz/Source/corefw/int.c",
+    "output": "/home/darko/Documents/GitHub/wasm4-shmupwarz/build/corefw/int.o"
   },
   {
     "arguments": [
@@ -441,11 +441,11 @@
       "-I/opt/wasi-sdk/share/wasi-sysroot/include/wasm32-wasi/",
       "-o",
       "build/corefw/map.o",
-      "src/corefw/map.c"
+      "Source/corefw/map.c"
     ],
-    "directory": "/home/darko/Documents/GitHub/dumbgame",
-    "file": "/home/darko/Documents/GitHub/dumbgame/src/corefw/map.c",
-    "output": "/home/darko/Documents/GitHub/dumbgame/build/corefw/map.o"
+    "directory": "/home/darko/Documents/GitHub/wasm4-shmupwarz",
+    "file": "/home/darko/Documents/GitHub/wasm4-shmupwarz/Source/corefw/map.c",
+    "output": "/home/darko/Documents/GitHub/wasm4-shmupwarz/build/corefw/map.o"
   },
   {
     "arguments": [
@@ -469,11 +469,11 @@
       "-I/opt/wasi-sdk/share/wasi-sysroot/include/wasm32-wasi/",
       "-o",
       "build/corefw/object.o",
-      "src/corefw/object.c"
+      "Source/corefw/object.c"
     ],
-    "directory": "/home/darko/Documents/GitHub/dumbgame",
-    "file": "/home/darko/Documents/GitHub/dumbgame/src/corefw/object.c",
-    "output": "/home/darko/Documents/GitHub/dumbgame/build/corefw/object.o"
+    "directory": "/home/darko/Documents/GitHub/wasm4-shmupwarz",
+    "file": "/home/darko/Documents/GitHub/wasm4-shmupwarz/Source/corefw/object.c",
+    "output": "/home/darko/Documents/GitHub/wasm4-shmupwarz/build/corefw/object.o"
   },
   {
     "arguments": [
@@ -497,11 +497,11 @@
       "-I/opt/wasi-sdk/share/wasi-sysroot/include/wasm32-wasi/",
       "-o",
       "build/corefw/printf.o",
-      "src/corefw/printf.c"
+      "Source/corefw/printf.c"
     ],
-    "directory": "/home/darko/Documents/GitHub/dumbgame",
-    "file": "/home/darko/Documents/GitHub/dumbgame/src/corefw/printf.c",
-    "output": "/home/darko/Documents/GitHub/dumbgame/build/corefw/printf.o"
+    "directory": "/home/darko/Documents/GitHub/wasm4-shmupwarz",
+    "file": "/home/darko/Documents/GitHub/wasm4-shmupwarz/Source/corefw/printf.c",
+    "output": "/home/darko/Documents/GitHub/wasm4-shmupwarz/build/corefw/printf.o"
   },
   {
     "arguments": [
@@ -525,11 +525,11 @@
       "-I/opt/wasi-sdk/share/wasi-sysroot/include/wasm32-wasi/",
       "-o",
       "build/corefw/random.o",
-      "src/corefw/random.c"
+      "Source/corefw/random.c"
     ],
-    "directory": "/home/darko/Documents/GitHub/dumbgame",
-    "file": "/home/darko/Documents/GitHub/dumbgame/src/corefw/random.c",
-    "output": "/home/darko/Documents/GitHub/dumbgame/build/corefw/random.o"
+    "directory": "/home/darko/Documents/GitHub/wasm4-shmupwarz",
+    "file": "/home/darko/Documents/GitHub/wasm4-shmupwarz/Source/corefw/random.c",
+    "output": "/home/darko/Documents/GitHub/wasm4-shmupwarz/build/corefw/random.o"
   },
   {
     "arguments": [
@@ -553,11 +553,11 @@
       "-I/opt/wasi-sdk/share/wasi-sysroot/include/wasm32-wasi/",
       "-o",
       "build/corefw/range.o",
-      "src/corefw/range.c"
+      "Source/corefw/range.c"
     ],
-    "directory": "/home/darko/Documents/GitHub/dumbgame",
-    "file": "/home/darko/Documents/GitHub/dumbgame/src/corefw/range.c",
-    "output": "/home/darko/Documents/GitHub/dumbgame/build/corefw/range.o"
+    "directory": "/home/darko/Documents/GitHub/wasm4-shmupwarz",
+    "file": "/home/darko/Documents/GitHub/wasm4-shmupwarz/Source/corefw/range.c",
+    "output": "/home/darko/Documents/GitHub/wasm4-shmupwarz/build/corefw/range.o"
   },
   {
     "arguments": [
@@ -581,11 +581,11 @@
       "-I/opt/wasi-sdk/share/wasi-sysroot/include/wasm32-wasi/",
       "-o",
       "build/corefw/refpool.o",
-      "src/corefw/refpool.c"
+      "Source/corefw/refpool.c"
     ],
-    "directory": "/home/darko/Documents/GitHub/dumbgame",
-    "file": "/home/darko/Documents/GitHub/dumbgame/src/corefw/refpool.c",
-    "output": "/home/darko/Documents/GitHub/dumbgame/build/corefw/refpool.o"
+    "directory": "/home/darko/Documents/GitHub/wasm4-shmupwarz",
+    "file": "/home/darko/Documents/GitHub/wasm4-shmupwarz/Source/corefw/refpool.c",
+    "output": "/home/darko/Documents/GitHub/wasm4-shmupwarz/build/corefw/refpool.o"
   },
   {
     "arguments": [
@@ -609,11 +609,11 @@
       "-I/opt/wasi-sdk/share/wasi-sysroot/include/wasm32-wasi/",
       "-o",
       "build/corefw/uuid.o",
-      "src/corefw/uuid.c"
+      "Source/corefw/uuid.c"
     ],
-    "directory": "/home/darko/Documents/GitHub/dumbgame",
-    "file": "/home/darko/Documents/GitHub/dumbgame/src/corefw/uuid.c",
-    "output": "/home/darko/Documents/GitHub/dumbgame/build/corefw/uuid.o"
+    "directory": "/home/darko/Documents/GitHub/wasm4-shmupwarz",
+    "file": "/home/darko/Documents/GitHub/wasm4-shmupwarz/Source/corefw/uuid.c",
+    "output": "/home/darko/Documents/GitHub/wasm4-shmupwarz/build/corefw/uuid.o"
   },
   {
     "arguments": [
@@ -637,11 +637,11 @@
       "-I/opt/wasi-sdk/share/wasi-sysroot/include/wasm32-wasi/",
       "-o",
       "build/Block/data.o",
-      "src/Block/data.c"
+      "Source/Block/data.c"
     ],
-    "directory": "/home/darko/Documents/GitHub/dumbgame",
-    "file": "/home/darko/Documents/GitHub/dumbgame/src/Block/data.c",
-    "output": "/home/darko/Documents/GitHub/dumbgame/build/Block/data.o"
+    "directory": "/home/darko/Documents/GitHub/wasm4-shmupwarz",
+    "file": "/home/darko/Documents/GitHub/wasm4-shmupwarz/Source/Block/data.c",
+    "output": "/home/darko/Documents/GitHub/wasm4-shmupwarz/build/Block/data.o"
   },
   {
     "arguments": [
@@ -665,10 +665,10 @@
       "-I/opt/wasi-sdk/share/wasi-sysroot/include/wasm32-wasi/",
       "-o",
       "build/Block/runtime.o",
-      "src/Block/runtime.c"
+      "Source/Block/runtime.c"
     ],
-    "directory": "/home/darko/Documents/GitHub/dumbgame",
-    "file": "/home/darko/Documents/GitHub/dumbgame/src/Block/runtime.c",
-    "output": "/home/darko/Documents/GitHub/dumbgame/build/Block/runtime.o"
+    "directory": "/home/darko/Documents/GitHub/wasm4-shmupwarz",
+    "file": "/home/darko/Documents/GitHub/wasm4-shmupwarz/Source/Block/runtime.c",
+    "output": "/home/darko/Documents/GitHub/wasm4-shmupwarz/build/Block/runtime.o"
   }
 ]

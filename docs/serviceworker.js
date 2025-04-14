@@ -1,4 +1,4 @@
-var staticCacheName = "dumbgame";
+var staticCacheName = "shmupwarz";
  
 self.addEventListener("install", function (e) {
   e.waitUntil(
