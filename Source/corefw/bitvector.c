@@ -142,6 +142,11 @@ method bool IsEmpty(CFBitVectorRef this)
         return this->length == 0;
 }
 
+method int Size(CFBitVectorRef this)
+{
+        return (this->length << ADDRESS_BITS_PER_WORD);
+}
+
 method void Set(CFBitVectorRef this, int bitIndex, bool value)
 {
         int wordIndex = bitIndex >> ADDRESS_BITS_PER_WORD;

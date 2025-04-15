@@ -13,7 +13,7 @@ WASM_OPT_FLAGS = -Oz --zero-filled-memory --strip-producers --enable-bulk-memory
 DEBUG = 0
 
 # Compilation flags
-CFLAGS = -std=c2y -fblocks -W -Wall -Wextra -Werror -Wno-unused -Wconversion -Wsign-conversion -MMD -MP -fno-exceptions -mbulk-memory
+CFLAGS = -std=c23 -fblocks -W -Wall -Wextra -Werror -Wno-unused -Wconversion -Wsign-conversion -MMD -MP -fno-exceptions -mbulk-memory
 ifeq ($(DEBUG), 1)
 	CFLAGS += -DDEBUG -O0 -g
 else
@@ -34,6 +34,7 @@ endif
 OBJECTS = $(patsubst Source/%.c, build/%.o, $(wildcard Source/*.c))
 OBJECTS += $(patsubst Source/%.cpp, build/%.o, $(wildcard Source/*.cpp))
 OBJECTS += $(patsubst Source/corefw/%.c, build/corefw/%.o, $(wildcard Source/corefw/*.c))
+OBJECTS += $(patsubst Source/Artemis/%.c, build/Artemis/%.o, $(wildcard Source/Artemis/*.c))
 OBJECTS += $(patsubst Source/Block/%.c, build/Block/%.o, $(wildcard Source/Block/*.c))
 DEPS = $(OBJECTS:.o=.d)
 
@@ -47,10 +48,10 @@ else
 endif
 
 ifeq ($(DETECTED_OS), Windows)
-	MKDIR_BUILD = if not exist build md build  build/corefw  build/Block
+	MKDIR_BUILD = if not exist build md build  build/corefw  build/Block build/Artemis
 	RMDIR = rd /s /q
 else
-	MKDIR_BUILD = mkdir -p build build/corefw  build/Block
+	MKDIR_BUILD = mkdir -p build build/corefw  build/Block build/Artemis
 	RMDIR = rm -rf
 endif
 
@@ -85,6 +86,9 @@ build/Block/%.o: Source/Block/%.c
 	@$(MKDIR_BUILD/Block)
 	$(CC) -c $< -o $@ $(CFLAGS)
 
+build/Artemis/%.o: Source/Artemis/%.c 
+	@$(MKDIR_BUILD/Artemis)
+	$(CC) -c $< -o $@ $(CFLAGS)
 
 .PHONY: clean
 clean:

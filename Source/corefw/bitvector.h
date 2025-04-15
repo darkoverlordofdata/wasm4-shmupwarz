@@ -43,6 +43,7 @@ extern method void Set(CFBitVectorRef, int, bool);
 extern method bool Get(CFBitVectorRef, int); 
 extern method void Clear(CFBitVectorRef);
 extern method void Clear(CFBitVectorRef, int);    
+extern method int Size(CFBitVectorRef);
 extern method char* ToString(CFBitVectorRef);
 
 

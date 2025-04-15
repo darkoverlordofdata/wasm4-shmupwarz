@@ -21,3 +21,4 @@ https://lospec.com/palette-list/en4
 For more info about setting up WASM-4, see the [quickstart guide](https://wasm4.org/docs/getting-started/setup?code-lang=c#quickstart).
 - [Documentation](https://wasm4.org/docs): Learn more about WASM-4.
 
+22.6k

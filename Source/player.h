@@ -21,7 +21,9 @@ typedef struct __Player
     uint32_t    width;
     uint32_t    height;                                                    
     uint32_t    flags;
+    uint16_t    mask;
 } __Player;
+
 
 PlayerRef method Ctor(PlayerRef, GameRef);
 

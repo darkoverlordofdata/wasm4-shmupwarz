@@ -34,7 +34,7 @@ PlayerRef method Ctor(PlayerRef this, GameRef game)
     this->height = spaceshipHeight;
     this->flags = spaceshipFlags;
     this->data = (uint8_t*)&spaceship[0];
-
+    this->mask = 0x0420; // he he 
     return this;
 }
 
@@ -52,9 +52,9 @@ void method Update(PlayerRef this)
 void method Draw(PlayerRef this)
 {
     (PlayerRef)this;
-    uint16_t save = SetDrawColors(0x0321);
+    uint16_t saved = SetDrawColors(this->mask);
     blit(this->data, this->x, this->y, this->width, this->height, this->flags);
-    SetDrawColors(save);
+    SetDrawColors(saved);
 }
 
 void method Move(PlayerRef this, long x, long y)
