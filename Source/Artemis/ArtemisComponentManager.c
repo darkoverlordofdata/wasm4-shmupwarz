@@ -1,4 +1,4 @@
-#include "../artemis.h"
+#include "artemis.h"
 
 static __CFClass class = {
     .name = "ArtemisComponentManager",

@@ -1,4 +1,4 @@
-#include "../artemis.h"
+#include "artemis.h"
 /**
 * The primary instance for the framework. It contains all the managers.
 * 

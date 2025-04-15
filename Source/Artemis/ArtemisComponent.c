@@ -1,4 +1,4 @@
-#include "../artemis.h"
+#include "artemis.h"
 /**
  * A tag class. All components in the system must extend this class.
  * 

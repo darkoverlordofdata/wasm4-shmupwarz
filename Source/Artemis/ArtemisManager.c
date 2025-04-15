@@ -1,6 +1,4 @@
-#include "../artemis.h"
-#include "ArtemisManager.h"
-#include <assert.h>
+#include "artemis.h"
 
 static __CFClass class = {
     .name = "ArtemisManager",

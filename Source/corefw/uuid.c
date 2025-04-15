@@ -37,7 +37,7 @@ static __CFClass class = {
     .name = "CFUuid",
     .size = sizeof(__CFUuid),
 };
-const CFClassRef CFUuidClass = &class;
+const CFClassRef CFUuid = &class;
 
 method void* New(CFUuidRef this)
 {

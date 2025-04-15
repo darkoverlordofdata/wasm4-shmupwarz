@@ -1,4 +1,4 @@
-#include "../artemis.h"
+#include "artemis.h"
 /**
  * The most raw entity system. It should not typically be used, but you can create your own
  * entity system handling by extending this. It is recommended that you use the other provided

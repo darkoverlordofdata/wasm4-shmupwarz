@@ -1,4 +1,4 @@
-#include "../artemis.h"
+#include "artemis.h"
 /**
  * Used to generate a unique bit for each system.
  * Only used internally in EntitySystem.

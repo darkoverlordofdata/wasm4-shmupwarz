@@ -1,8 +1,4 @@
-#include "../artemis.h"
-#include "ArtemisComponentManager.h"
-#include "ArtemisComponentType.h"
-#include "ArtemisComponentTypeFactory.h"
-#include "ArtemisWorld.h"
+#include "artemis.h"
 #include <stdlib.h>
 /**
  * The entity class. Cannot be instantiated outside the framework, you must
@@ -82,7 +78,7 @@ void ArtemisEntityReset(ArtemisEntityRef this)
 {
     Clear(this->systemBits, false);
     Clear(this->componentBits, false);
-    this->uuid = CFCreate(CFUuidClass);
+    this->uuid = CFCreate(CFUuid);
 }
 
 CFObjectRef ArtemisEntityCreateComponent(ArtemisEntityRef this, CFClassRef cls, ...)

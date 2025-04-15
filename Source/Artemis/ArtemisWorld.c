@@ -1,8 +1,5 @@
 #include <assert.h>
-#include "../artemis.h"
-#include "ArtemisEntity.h"
-#include "ArtemisEntitySystem.h"
-#include "ArtemisManager.h"
+#include "artemis.h"
 
 // #include "ArtemisComponentManager.h"
 // #include "ArtemisEntitySystem.h"

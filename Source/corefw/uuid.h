@@ -29,7 +29,7 @@ SOFTWARE.
 #include <limits.h>
 #include <stdbool.h>
 
-extern const CFClassRef CFUuidClass;
+extern const CFClassRef CFUuid;
 typedef struct __CFUuid* CFUuidRef;
 
 /**

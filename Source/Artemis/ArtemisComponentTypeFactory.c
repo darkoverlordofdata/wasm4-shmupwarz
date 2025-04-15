@@ -1,6 +1,4 @@
-#include "../artemis.h"
-#include "ArtemisComponentManager.h"
-#include "ArtemisComponentType.h"
+#include "artemis.h"
 /**
  * Contains all generated component types, newly generated component types
  * will be stored here.

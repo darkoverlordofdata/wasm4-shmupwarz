@@ -1,6 +1,4 @@
-#include "../artemis.h"
-#include "ArtemisComponentManager.h"
-#include "ArtemisIdentifierPool.h"
+#include "artemis.h"
 
 static struct __CFClass class = {
     .name = "ArtemisEntityManager",
