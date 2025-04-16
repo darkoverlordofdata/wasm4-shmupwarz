@@ -1,26 +1,13 @@
-#include "artemis.h"
 /**
  * A tag class. All components in the system must extend this class.
  * 
  * @author Arni Arent
  */
-typedef struct __ArtemisComponent {
-    __CFObject obj;
-} __ArtemisComponent;
+#include "artemis.h"    // IWYU pragma: keep
 
-static __CFClass class = {
-    .name = "ArtemisComponent",
-    .size = sizeof(__ArtemisComponent),
-    .ctor = ctor,
-};
-CFClassRef ArtemisComponent = &class;
+class(ArtemisComponent);
 
-static bool ctor(void *ptr, va_list args)
+ArtemisComponentRef method Ctor(ArtemisComponentRef this)
 {
-    (void*)args;
-    ArtemisComponentRef this = ptr;
-
-    return true;
+    return this;
 }
-
-

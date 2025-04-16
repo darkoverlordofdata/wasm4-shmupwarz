@@ -3,4 +3,11 @@
 /**
  *  @class ArtemisSystemIndexManager
  */
+
+typedef struct ArtemisSystemIndexManagerClass {
+    int         index;
+    CFMapRef    indices;
+} ArtemisSystemIndexManagerClass;
+
+
 ulong ArtemisSystemIndexManagerGetIndexFor(CFClassRef es);

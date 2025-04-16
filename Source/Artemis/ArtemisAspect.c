@@ -1,4 +1,3 @@
-#include "artemis.h"
 /**
  * An Aspects is used by systems as a matcher against entities, to check if a system is
  * interested in an entity. Aspects define what sort of component types an entity must
@@ -21,35 +20,25 @@
  * @author Arni Arent
  *
  */
-typedef struct __ArtemisAspect {
-    __CFObject      obj;
-    CFBitVectorRef  allSet;
-    CFBitVectorRef  exclusionSet;
-    CFBitVectorRef  oneSet;
-    ArtemisWorldRef world;
-} __ArtemisAspect;
+#include "artemis.h" // IWYU pragma: keep
+class(ArtemisAspect);
 
-static struct __CFClass class = {
-    .name = "ArtemisAspect",
-    .size = sizeof(__ArtemisAspect),
-    .ctor = ctor,
-};
-CFClassRef ArtemisAspect = &class;
+ArtemisComponentTypeFactoryRef ArtemisAspectTypeFactory = nullptr;
 
 /**
  *
  * @param {ArtemisWorld} world
  */
-static bool ctor(void *ptr, va_list args)
+ArtemisAspectRef method Ctor(ArtemisAspectRef this, ArtemisWorldRef world)
 {
-    ArtemisAspectRef this = ptr;
+    (ArtemisAspectRef)this;
 
-    this->world = va_arg(args, ArtemisWorldRef);
+    this->world = world;
     this->allSet = CFCreate(CFBitVector);
     this->exclusionSet = CFCreate(CFBitVector);
     this->oneSet = CFCreate(CFBitVector);
 
-    return true;
+    return this;
 }
 /**
  *
@@ -77,7 +66,7 @@ CFBitVectorRef ArtemisAspectGetOneSet(ArtemisAspectRef this)
 
 ulong ArtemisAspectGetIndexFor(ArtemisAspectRef this, CFClassRef cls)
 {
-    (void*)this;
+    (ArtemisAspectRef)this;
     return ArtemisComponentTypeFactoryGetIndexFor(ArtemisAspectTypeFactory, cls);
 }
 
@@ -92,7 +81,7 @@ ArtemisAspectRef ArtemisAspectAll(ArtemisAspectRef this, ...)
     va_list args;
     va_start(args, this);
     CFClassRef cls;
-    while ((cls = va_arg(args, CFClassRef)) != NULL) {
+    while ((cls = va_arg(args, CFClassRef)) != nullptr) {
         Set(this->allSet, (int)ArtemisAspectGetIndexFor(this, cls), true);
     }
     va_end(args);
@@ -112,7 +101,7 @@ ArtemisAspectRef ArtemisAspectExclude(ArtemisAspectRef this, ...)
     va_list args;
     va_start(args, this);
     CFClassRef cls;
-    while ((cls = va_arg(args, CFClassRef)) != NULL) {
+    while ((cls = va_arg(args, CFClassRef)) != nullptr) {
         Set(this->exclusionSet, (int)ArtemisAspectGetIndexFor(this, cls), true);
     }
     va_end(args);
@@ -130,7 +119,7 @@ ArtemisAspectRef ArtemisAspectOne(ArtemisAspectRef this, ...)
     va_list args;
     va_start(args, this);
     CFClassRef cls;
-    while ((cls = va_arg(args, CFClassRef)) != NULL) {
+    while ((cls = va_arg(args, CFClassRef)) != nullptr) {
         Set(this->oneSet, (int)ArtemisAspectGetIndexFor(this, cls), true);
     }
     va_end(args);

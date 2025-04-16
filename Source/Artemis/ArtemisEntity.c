@@ -1,5 +1,3 @@
-#include "artemis.h"
-#include <stdlib.h>
 /**
  * The entity class. Cannot be instantiated outside the framework, you must
  * create new entities using World.
@@ -7,37 +5,21 @@
  * @author Arni Arent
  * 
  */
-typedef struct __ArtemisEntity {
-    __CFObject                  obj;
-    CFUuidRef                   uuid;
-    CFStringRef                 name;
-    ulong                       id;
-    CFBitVectorRef              componentBits;
-    CFBitVectorRef              systemBits;
-    ArtemisWorldRef             world;
-    ArtemisEntityManagerRef     entityManager;
-    ArtemisComponentManagerRef  componentManager;
-} __ArtemisEntity;
+#include "artemis.h"    // IWYU pragma: keep
 
-static __CFClass class = {
-    .name = "ArtemisEntity",
-    .size = sizeof(__ArtemisEntity),
-    .ctor = ctor,
-};
-CFClassRef ArtemisEntity = &class;
+class(ArtemisEntity);
 
-static bool ctor(void *ptr, va_list args)
+ArtemisEntityRef method Ctor(ArtemisEntityRef this, ArtemisWorldRef world, ulong id, char* name)
 {
-    ArtemisEntityRef this = ptr;
-    this->world = va_arg(args, ArtemisWorldRef);
-    this->id = va_arg(args, ulong);
-    this->name = CFCreate(CFString, va_arg(args, char*));
+    this->world = world;
+    this->id = id;
+    this->name = NewString(name);
     this->entityManager = ArtemisWorldGetEntityManager(this->world);
     this->componentManager = ArtemisWorldGetComponentManager(this->world);
-    this->systemBits = CFCreate(CFBitVector, NULL);
-    this->componentBits = CFCreate(CFBitVector, NULL);
+    this->systemBits = CFCreate(CFBitVector, nullptr);
+    this->componentBits = CFCreate(CFBitVector, nullptr);
 
-    return true;
+    return this;
 }
 
 /**

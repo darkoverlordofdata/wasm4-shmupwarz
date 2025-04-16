@@ -1,40 +1,19 @@
-#include "artemis.h"
 /**
  * Contains all generated component types, newly generated component types
  * will be stored here.
  */
-typedef struct __ArtemisComponentTypeFactory {
-    __CFObject  obj;
-    /**
-     * Contains all generated component types, newly generated component types
-     * will be stored here.
-     */
-    CFMapRef    componentTypes;
-    /** Amount of generated component types. */
-    ulong       componentTypeCount;
-    /** Index of this component type in componentTypes. */
-    CFBagRef    types;
+#include "artemis.h"    // IWYU pragma: keep
 
-} __ArtemisComponentTypeFactory;
+class(ArtemisComponentTypeFactory);
 
-static struct __CFClass class = {
-    .name = "ArtemisComponentTypeFactory",
-    .size = sizeof(struct __ArtemisComponentTypeFactory),
-    .ctor = ctor,
-};
-CFClassRef ArtemisComponentTypeFactory = &class;
-
-static bool ctor(void *ptr, va_list args)
+ArtemisComponentTypeFactoryRef method Ctor(ArtemisComponentTypeFactoryRef this)
 {
-    (void*)args;
-    ArtemisComponentTypeFactoryRef this = ptr;
-
-    this->componentTypes = CFCreate(CFMap, NULL);
-    this->types = CFCreate(CFArray, NULL);
+    this->componentTypes = CFCreate(CFMap, nullptr);
+    this->types = CFCreate(CFArray, nullptr);
     this->componentTypeCount = 0;
     ArtemisAspectTypeFactory = this;
 
-    return true;
+    return this;
 }
 
 /**
@@ -52,7 +31,7 @@ static bool ctor(void *ptr, va_list args)
 ArtemisComponentTypeRef ArtemisComponentTypeFactoryGetTypeFor(ArtemisComponentTypeFactoryRef this, CFClassRef cls)
 {
     ArtemisComponentTypeRef type = CFMapGet(this->componentTypes, CFCreate(CFString, cls->name));
-    if (type == NULL) {
+    if (type == nullptr) {
         ulong index = this->componentTypeCount++;
         type = CFCreate(ArtemisComponentType, cls , index);
         CFMapSet(this->componentTypes, CFCreate(CFString, cls->name), type);

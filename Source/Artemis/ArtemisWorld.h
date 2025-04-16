@@ -5,16 +5,33 @@
  *  @class ArtemisWorld
  */
 extern CFClassRef ArtemisWorld;
-
-typedef struct __ArtemisWorld*              ArtemisWorldRef;
 typedef struct __ArtemisEntityManager*      ArtemisEntityManagerRef;
 typedef struct __ArtemisComponentManager*   ArtemisComponentManagerRef;
+
+typedef struct __ArtemisWorld {
+    __CFObject                  obj;
+    float                       delta;
+    CFMapRef                    managers;
+    CFBagRef                    managersBag;
+    CFMapRef                    systems;
+    CFBagRef                    systemsBag;
+    CFBagRef                    added;
+    CFBagRef                    changed;
+    CFBagRef                    deleted;
+    CFBagRef                    enable;
+    CFBagRef                    disable;
+    ArtemisEntityManagerRef     em;
+    ArtemisComponentManagerRef  cm;
+} __ArtemisWorld;
+
+typedef struct __ArtemisWorld*              ArtemisWorldRef;
 typedef struct __ArtemisEntity*             ArtemisEntityRef;
 typedef struct __ArtemisEntitySystem*       ArtemisEntitySystemRef;
 typedef struct __ArtemisComponentMapper*    ArtemisComponentMapperRef;
 
 typedef void (^ArtemisPerform)(ArtemisManagerRef, ArtemisEntityRef);
 
+ArtemisWorldRef method Ctor(ArtemisWorldRef this);
 ArtemisEntityManagerRef ArtemisWorldGetEntityManager(ArtemisWorldRef);
 void ArtemisWorldInitialize(ArtemisWorldRef);
 ArtemisComponentManagerRef ArtemisWorldGetComponentManager(ArtemisWorldRef);
@@ -42,4 +59,8 @@ ArtemisComponentMapperRef ArtemisWorldGetMapper(ArtemisWorldRef, CFClassRef);
 void ArtemisWorldSetEntityTemplate(ArtemisWorldRef, CFStringRef, CFObjectRef);
 ArtemisEntityRef ArtemisWorldCreateEntityFromTemplate(ArtemisWorldRef, CFStringRef, ...);
 
+static inline ArtemisWorldRef NewArtemisWorld()
+{
+    return Ctor((ArtemisWorldRef)CFCreate(ArtemisWorld));
+}
 

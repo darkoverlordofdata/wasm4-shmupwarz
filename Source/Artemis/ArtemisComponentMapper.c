@@ -1,23 +1,6 @@
-#include "artemis.h"
-#include "ArtemisEntity.h"
+#include "artemis.h"    // IWYU pragma: keep
 
-/**
-*   Component Mapper Class
-*/
-typedef struct __ArtemisComponentMapper {
-    __CFObject                  obj;
-    ArtemisWorldRef             world;
-    ArtemisComponentTypeRef     type;
-    CFClassRef                  classType;
-    CFBagRef                    components;
-} __ArtemisComponentMapper;
-
-static __CFClass class = {
-    .name = "ArtemisComponentMapper",
-    .size = sizeof(__ArtemisComponentMapper),
-    .ctor = ctor,
-};
-CFClassRef ArtemisComponentMapper = &class;
+class(ArtemisComponentMapper);
 
 
 /**
@@ -29,14 +12,13 @@ CFClassRef ArtemisComponentMapper = &class;
  * @param {ArtemisClass} the class type of the component
  * @param {ArtemisWorld} the world instance
  */
-static bool ctor(void *ptr, va_list args)
+ArtemisComponentMapperRef method Ctor(ArtemisComponentMapperRef this, CFClassRef cls, ArtemisWorldRef world)
 {
-    ArtemisComponentMapperRef this = ptr;
-    this->classType = va_arg(args, CFClassRef);
-    this->world = va_arg(args, ArtemisWorldRef);
-    this->type = NULL;
-    this->components = NULL;
-    return true;
+    this->classType = cls;
+    this->world = world;
+    this->type = nullptr;
+    this->components = nullptr;
+    return this;
 }
 
 
@@ -72,7 +54,7 @@ CFObjectRef ArtemisComponentMapperGetSafe(ArtemisComponentMapperRef this, Artemi
  */
 bool ArtemisComponentMapperHas(ArtemisComponentMapperRef this, ArtemisEntityRef e)
 {
-    return ArtemisComponentMapperGetSafe(this, e) != NULL;
+    return ArtemisComponentMapperGetSafe(this, e) != nullptr;
 }
 
 /**

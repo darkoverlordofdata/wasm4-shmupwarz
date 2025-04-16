@@ -9,7 +9,14 @@ __as seen on bluesky__
 ![alt use-case](https://github.com/darkoverlordofdata/wasm-shmupwarz/blob/main/Resources/thumbnail.png?raw=true)
 
 ## work in progress
+the best thing about this using wasi-sdk is the reliance on clang-19 so i have access to c23 as well as the latest clang extensions
 
+lotes of exciting new c23 features:
+* nullptr
+* auto
+* constexpr
+* bool
+* static_assert
 
 ## theme
 https://lospec.com/palette-list/en4
@@ -22,3 +29,5 @@ For more info about setting up WASM-4, see the [quickstart guide](https://wasm4.
 - [Documentation](https://wasm4.org/docs): Learn more about WASM-4.
 
 22.6k
+26.1k
+24.3

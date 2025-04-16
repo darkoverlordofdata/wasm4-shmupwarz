@@ -1,6 +1,4 @@
-#include <stdbool.h>
 #include "corefw/corefw.h" // IWYU pragma: keep
-#include "corefw/object.h"
 #include "wasm4.h"
 #include "game.h"
 

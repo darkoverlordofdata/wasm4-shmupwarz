@@ -1,6 +1,4 @@
 #pragma once
-#include "corefw/cfstring.h"
-#include "corefw/class.h"
 #include "corefw/corefw.h" // IWYU pragma: keep
 
 extern CFClassRef Palette;

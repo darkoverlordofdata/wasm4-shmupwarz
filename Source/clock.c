@@ -1,14 +1,6 @@
 #include "clock.h"
 
-/**
- * Clock class
- */
-static struct __CFClass class = {
-    .name = "Clock",
-    .size = sizeof(struct __Clock),
-};
-CFClassRef Clock = &class;
-
+class(Clock);
 
 ClockRef method Ctor(ClockRef this, GameRef game)
 {

@@ -5,22 +5,13 @@
  *
  * @see https://wasm4.org/play/text-input
  */
- #include "corefw/cfstring.h"
 #include "player.h"
 #include "wasm4.h"
 #include "corefw/corefw.h" // IWYU pragma: keep
 #include "config.h"
 #include "game.h"
-#include <stdbool.h>
 
-/**
- * Config class
- */
-static __CFClass class = {
-	.name = "Config",
-	.size = sizeof(__Config),
-};
-CFClassRef Config = &class;
+class(Config);
 
 static Keyplace keyplace_normalize(Keyplace kp);
 typedef struct { int x, y; } iVec2;

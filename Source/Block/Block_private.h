@@ -34,7 +34,7 @@
 #endif
 
 #ifndef _MSC_VER
-#include <stdbool.h>
+// #include <stdbool.h>
 #else
 /* MSVC doesn't have <stdbool.h>. Compensate. */
 typedef char bool;

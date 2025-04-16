@@ -26,8 +26,6 @@ SOFTWARE.
 #pragma once
 #include "class.h"
 #include "object.h"
-#include <limits.h>
-#include <stdbool.h>
 
 extern const CFClassRef CFUuid;
 typedef struct __CFUuid* CFUuidRef;

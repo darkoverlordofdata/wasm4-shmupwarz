@@ -1,13 +1,9 @@
 #pragma once
-#include "corefw/cfstring.h"
-#include "corefw/class.h"
 #include "corefw/corefw.h" // IWYU pragma: keep
 
 extern CFClassRef Clock;
-
-typedef struct __Clock*     ClockRef;
 typedef struct __Game*      GameRef;
-
+typedef struct __Clock*     ClockRef;
 typedef void (^TickHandler)(ClockRef this, GameRef game);
 
 /**
@@ -24,6 +20,7 @@ typedef struct __Clock
     long        times;      // time in seconds since start
     TickHandler onTick;     // called once per second to handle clock tick
 } __Clock;
+
 
 ClockRef method Ctor(ClockRef, GameRef);
 void method Tick(ClockRef);

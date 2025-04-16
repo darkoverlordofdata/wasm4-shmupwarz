@@ -1,32 +1,25 @@
-#include "artemis.h"
+#include "artemis.h"    // IWYU pragma: keep
 
-static __CFClass class = {
-    .name = "ArtemisComponentManager",
-    .size = sizeof(__ArtemisComponentManager),
-    .ctor = ctor,
-};
-CFClassRef ArtemisComponentManager = &class;
+class(ArtemisComponentManager);
 
 /**
 *   Component Manager Class
 */
-
-static bool ctor(void *ptr, va_list args)
+ArtemisComponentManagerRef method Ctor(ArtemisComponentManagerRef this)
 {
-    (void*)args;
-    ArtemisComponentManagerRef this = ptr;
-    this->componentsByType = CFCreate(CFArray, NULL);
+    this->componentsByType = CFCreate(CFArray, nullptr);
     this->pooledComponents = CFCreate(ArtemisComponentPool);
-    this->deleted = CFCreate(CFArray, NULL);
+    this->deleted = CFCreate(CFArray, nullptr);
     this->typeFactory = CFCreate(ArtemisComponentTypeFactory);
 
+    // virtual functions
     static struct ArtemisManagerVtbl const vtbl = { &ArtemisComponentManagerAdded, 
                                                     &ArtemisComponentManagerChanged,
                                                     &ArtemisComponentManagerDeleted,
                                                     &ArtemisComponentManagerDisabled,
                                                     &ArtemisComponentManagerEnabled };
     this->base.vptr = &vtbl;               
-    return true;
+    return this;
 }
 
 void ArtemisComponentManagerSetWorld(
@@ -40,7 +33,7 @@ void ArtemisComponentManagerSetWorld(
 void ArtemisComponentManagerInitialize(
     ArtemisComponentManagerRef this)
 {
-    (void*)this;
+    (ArtemisComponentManagerRef)this;
 }
 
 CFObjectRef ArtemisComponentManagerCreate(
@@ -60,7 +53,7 @@ CFObjectRef ArtemisComponentManagerCreate(
             component = ArtemisComponentManagerNewInstance(this, componentClass, false);
             break;
         default:
-            component = NULL;
+            component = nullptr;
             break;
     }
     ArtemisComponentManagerAddComponent(this, owner, type, component);
@@ -94,11 +87,11 @@ void ArtemisComponentManagerRemoveComponentsOfEntity(
         if (Get(componentBits, i)) {
             switch (ArtemisComponentTypeFactoryGetTaxonomy(this->typeFactory, (ulong)i)) {
                 case ArtemisTaxonomy_BASIC:
-                    CFBagSet(this->componentsByType, ArtemisEntityGetId(e), NULL);
+                    CFBagSet(this->componentsByType, ArtemisEntityGetId(e), nullptr);
                     break;
 
                 case ArtemisTaxonomy_POOLED:
-                    CFBagSet(this->componentsByType, ArtemisEntityGetId(e), NULL);
+                    CFBagSet(this->componentsByType, ArtemisEntityGetId(e), nullptr);
                     break;
         
                 default:
@@ -129,8 +122,8 @@ void ArtemisComponentManagerAddComponent(
     CFObjectRef component)
 {
     CFBagRef components = CFBagGet(this->componentsByType, ArtemisComponentTypeGetIndex(type));
-    if (components == NULL) {
-        components = CFCreate(CFArray, NULL);
+    if (components == nullptr) {
+        components = CFCreate(CFArray, nullptr);
         CFBagSet(this->componentsByType, ArtemisComponentTypeGetIndex(type), components);
     }
     CFBagSet(components, ArtemisEntityGetId(e), component);
@@ -153,12 +146,12 @@ void ArtemisComponentManagerRemoveComponent(
     int index = (int)ArtemisComponentTypeGetIndex(type);
     switch (ArtemisComponentTypeGetTaxonomy(type)) {
         case ArtemisTaxonomy_BASIC:
-            CFBagSet(this->componentsByType, ArtemisEntityGetId(e), NULL);
+            CFBagSet(this->componentsByType, ArtemisEntityGetId(e), nullptr);
             Set(ArtemisEntityGetComponentBits(e), index, false);
             break;
 
         case ArtemisTaxonomy_POOLED:
-            CFBagSet(this->componentsByType, ArtemisEntityGetId(e), NULL);
+            CFBagSet(this->componentsByType, ArtemisEntityGetId(e), nullptr);
             Set(ArtemisEntityGetComponentBits(e), index, false);
             break;
  
@@ -180,8 +173,8 @@ CFBagRef ArtemisComponentManagerGetComponentsByType(
     ArtemisComponentTypeRef type)
 {
     CFBagRef components = CFBagGet(this->componentsByType, ArtemisComponentTypeGetIndex(type));
-    if (components == NULL) {
-        components = CFCreate(CFArray, NULL);
+    if (components == nullptr) {
+        components = CFCreate(CFArray, nullptr);
         CFBagSet(this->componentsByType, ArtemisComponentTypeGetIndex(type), components);   
     }
     return components;
@@ -202,10 +195,10 @@ CFObjectRef ArtemisComponentManagerGetComponent(
     ArtemisComponentTypeRef type)
 {
     CFBagRef components = CFBagGet(this->componentsByType, ArtemisComponentTypeGetIndex(type));
-    if (components != NULL) {
+    if (components != nullptr) {
         return CFBagGet(components, ArtemisEntityGetId(e));
     }
-    return NULL;
+    return nullptr;
 }
 
 /**

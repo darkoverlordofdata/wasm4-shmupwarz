@@ -24,11 +24,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ******************************************************************/
 #pragma once
-#include <limits.h>
-#include <stdbool.h>
 #include <assert.h>
 #include "class.h"
-#include "object.h"
 
 extern const CFClassRef CFBitVector;
 

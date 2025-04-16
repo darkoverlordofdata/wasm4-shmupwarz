@@ -1,21 +1,13 @@
-#include "artemis.h"
+#include "artemis.h"    // IWYU pragma: keep
 
-static struct __CFClass class = {
-    .name = "ArtemisEntityManager",
-    .size = sizeof(struct __ArtemisEntityManager),
-    .ctor = ctor,
-};
-CFClassRef ArtemisEntityManager = &class;
+class(ArtemisEntityManager);
 
 /**
  *
  */
-static bool ctor(void *ptr, va_list args)
+ArtemisEntityManagerRef method Ctor(ArtemisEntityManagerRef this)
 {
-    (void*)args;
-    ArtemisEntityManagerRef this = ptr;
-
-    this->entities = CFCreate(CFArray, NULL);
+    this->entities = CFCreate(CFArray, nullptr);
     this->disabled = CFCreate(CFBitVector);
     this->identifierPool = CFCreate(ArtemisIdentifierPool);
     this->active = 0;
@@ -30,7 +22,7 @@ static bool ctor(void *ptr, va_list args)
                                                     &ArtemisEntityManagerEnabled };
     this->base.vptr = &vtbl;               
 
-    return true;
+    return this;
 }
 
 void ArtemisEntityManageSetWorld(ArtemisEntityManagerRef this, ArtemisWorldRef world)
@@ -55,7 +47,7 @@ ArtemisEntityRef ArtemisEntityManagerCreateEntityInstance(ArtemisEntityManagerRe
  */
 bool ArtemisEntityManagerIsActive(ArtemisEntityManagerRef this, ulong id)
 { 
-    return (CFBagGet(this->entities, id) != NULL);
+    return (CFBagGet(this->entities, id) != nullptr);
 }
 
 /**

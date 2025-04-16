@@ -1,8 +1,5 @@
 #pragma once
-#include "corefw/cfstring.h"
-#include "corefw/class.h"
 #include "corefw/corefw.h" // IWYU pragma: keep
-#include "wasm4.h"
 
 extern CFClassRef Splash;
 

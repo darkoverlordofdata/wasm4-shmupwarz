@@ -1,28 +1,6 @@
-#include "artemis.h"
+#include "artemis.h"    // IWYU pragma: keep
 
-static __CFClass class = {
-    .name = "ArtemisManager",
-    .size = sizeof(__ArtemisManager),
-    .ctor = ctor,
-};
-CFClassRef ArtemisManager = &class;
-
-
-
-/**
- * constructor
- * 
- * @param {int} x
- * @param {int} y
- * @param {int} width
- */
-static bool ctor(void *ptr, va_list args)
-{
-    (void*)ptr;
-    (void*)args;
-    return true;
-}
-
+class(ArtemisManager);
 
 void ArtemisManagerSetWorld(ArtemisManagerRef this, ArtemisWorldRef world)
 {

@@ -1,14 +1,7 @@
 #include "palette.h"
 #include "wasm4.h"
 
-/**
- * Palette class
- */
-static struct __CFClass class = {
-    .name = "Palette",
-    .size = sizeof(struct __Palette),
-};
-CFClassRef Palette = &class;
+class(Palette);
 
 static uint32_t ice_cream_gb[] = { 0xfff6d3, 0xf9a875, 0xeb6b6f, 0x7c3f58 }; 
 static uint32_t en4[]          = { 0x20283d, 0x426e5d, 0xe5b083, 0xfbf7f3 }; 

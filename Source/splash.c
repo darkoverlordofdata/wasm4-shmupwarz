@@ -2,20 +2,12 @@
  * Splash Screen
  *
  */
-#include "corefw/cfstring.h"
 #include "wasm4.h"
 #include "corefw/corefw.h" // IWYU pragma: keep
 #include "splash.h"
 #include "background.h"
 
-/**
- * Splash class
- */
-static __CFClass class = {
-    .name = "Splash",
-    .size = sizeof(__Splash),
-};
-CFClassRef Splash = &class;
+class(Splash);
 
 /**
  * Splash 

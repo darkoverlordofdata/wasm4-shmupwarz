@@ -41,13 +41,9 @@
      email: m-mat @ math.sci.hiroshima-u.ac.jp (remove space)
 */
 
-#include "corefw.h"
+#include "corefw.h" // IWYU pragma: keep
 #include "random.h"
-#include <limits.h>
-#include <stdbool.h>
-// #include <stdio.h>
 #include <string.h>
-// #include <time.h>
 
 /* Period parameters */
 #define MT19937_N 624

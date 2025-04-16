@@ -1,6 +1,3 @@
-#include <assert.h>
-#include "artemis.h"
-
 // #include "ArtemisComponentManager.h"
 // #include "ArtemisEntitySystem.h"
 // #include "ArtemisWorld.h"
@@ -14,38 +11,17 @@
 * @author Arni Arent
 * 
 */
-typedef struct __ArtemisWorld {
-    __CFObject                  obj;
-    float                       delta;
-    CFMapRef                    managers;
-    CFBagRef                    managersBag;
-    CFMapRef                    systems;
-    CFBagRef                    systemsBag;
-    CFBagRef                    added;
-    CFBagRef                    changed;
-    CFBagRef                    deleted;
-    CFBagRef                    enable;
-    CFBagRef                    disable;
-    ArtemisEntityManagerRef     em;
-    ArtemisComponentManagerRef  cm;
-} __ArtemisWorld;
+#include "artemis.h"    // IWYU pragma: keep
 
-static __CFClass class = {
-    .name = "ArtemisWorld",
-    .size = sizeof(__ArtemisWorld),
-    .ctor = ctor,
-};
-CFClassRef ArtemisWorld = &class;
+class(ArtemisWorld);
 
-static bool ctor(
-    void *ptr, 
-    va_list args)
+ArtemisWorldRef method Ctor(ArtemisWorldRef this)
 {
-    (void*)args;
-    ArtemisWorldRef this = ptr;
-    this->managers = CFCreate(CFMap, NULL);
+    (ArtemisWorldRef)this;
+
+    this->managers = CFCreate(CFMap, nullptr);
     this->managersBag = CFCreate(CFBag, 64);
-    this->systems = CFCreate(CFMap, NULL);
+    this->systems = CFCreate(CFMap, nullptr);
     this->systemsBag = CFCreate(CFBag, 64);
     this->added = CFCreate(CFBag, 64);
     this->changed = CFCreate(CFBag, 64);
@@ -59,7 +35,7 @@ static bool ctor(
     this->em = CFCreate(ArtemisEntityManager);
     ArtemisWorldSetManager(this, (CFObjectRef)this->em);
 
-    return true;
+    return this;
 }
 
 /**
@@ -139,7 +115,7 @@ void ArtemisWorldDeleteManager(
     ArtemisWorldRef this, 
     CFObjectRef manager)
 {
-    CFMapSet(this->managers, NewString((char*)manager->cls->name), NULL);
+    CFMapSet(this->managers, NewString((char*)manager->cls->name), nullptr);
     CFBagRemove(this->managersBag, manager);
 }
 
@@ -295,7 +271,7 @@ void ArtemisWorldDeleteSystem(
     ArtemisEntitySystemRef system)
 {
     CFObjectRef obj = (CFObjectRef)system;
-    CFMapSet(this->systems, NewString((char*)obj->cls->name), NULL);
+    CFMapSet(this->systems, NewString((char*)obj->cls->name), nullptr);
     CFBagRemove(this->systemsBag, system);
 }
 
@@ -358,7 +334,7 @@ void ArtemisWorldCheck(
 void ArtemisWorldProcess(
     ArtemisWorldRef this)
 {
-    (void*)this;
+    (ArtemisWorldRef)this;
 
     ArtemisWorldCheck(this, this->added, ^(ArtemisManagerRef m, ArtemisEntityRef e) {
         ArtemisManagerAdded(m, e);
@@ -411,9 +387,9 @@ void ArtemisWorldSetEntityTemplate(
     CFStringRef name, 
     CFObjectRef cls)
 {
-    (void*)this;
-    (void*)name;
-    (void*)cls;
+    (ArtemisWorldRef)this;
+    (CFStringRef)name;
+    (CFObjectRef)cls;
 }
 
 /**
@@ -429,7 +405,7 @@ ArtemisEntityRef ArtemisWorldCreateEntityFromTemplate(
     CFStringRef name, 
     ...)
 {
-    (void*)this;
-    (void*)name;
-    return NULL;
+    (ArtemisWorldRef)this;
+    (CFStringRef)name;
+    return nullptr;
 }

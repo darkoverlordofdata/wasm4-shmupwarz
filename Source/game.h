@@ -1,12 +1,11 @@
 #pragma once
-#include <stdbool.h>
-#include "corefw/cfstring.h"
-#include "corefw/class.h"
+#include "Artemis/artemis.h" // IWYU pragma: keep
 #include "corefw/corefw.h" // IWYU pragma: keep
 #include "player.h"
 #include "splash.h"
 #include "config.h"
 #include "clock.h"
+#include "wasm4.h"
 
 extern CFClassRef Game;
 typedef struct __Game* GameRef;
@@ -43,6 +42,7 @@ typedef struct __Game
     bool            first;
     unsigned long   frameCounter;
     player_data     data;
+    ArtemisWorldRef world;
 } __Game;
 
 
@@ -59,7 +59,7 @@ static inline GameRef NewGame()
 
 static inline uint16_t SetDrawColors(uint16_t c)
 {
-    uint16_t prior = *DRAW_COLORS;
+    auto prior = *DRAW_COLORS;
     *DRAW_COLORS = c;
     return prior;
 }

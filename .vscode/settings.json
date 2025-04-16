@@ -1,4 +1,5 @@
 {
     "cmake.ignoreCMakeListsMissing": true,
-    "makefile.configureOnOpen": false
+    "makefile.configureOnOpen": false,
+    "clangd.path": "/usr/bin/clangd-19"
 }

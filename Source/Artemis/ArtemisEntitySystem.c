@@ -1,4 +1,3 @@
-#include "artemis.h"
 /**
  * The most raw entity system. It should not typically be used, but you can create your own
  * entity system handling by extending this. It is recommended that you use the other provided
@@ -7,36 +6,18 @@
  * @author Arni Arent
  *
  */
-typedef struct __ArtemisEntitySystem {
-    __CFObject          obj;
-    ulong               systemIndex;  
-    ArtemisWorldRef     world;
-    CFBagRef            actives;
-    ArtemisAspectRef    aspect;
-    CFBitVectorRef      allSet;
-    CFBitVectorRef      exclusionSet;
-    CFBitVectorRef      oneSet;
-    bool                passive;
-    bool                dummy;
-} __ArtemisEntitySystem;
+#include "artemis.h"    // IWYU pragma: keep
 
-static __CFClass class = {
-    .name = "ArtemisEntitySystem",
-    .size = sizeof(__ArtemisEntitySystem),
-    .ctor = ctor,
-};
-CFClassRef ArtemisEntitySystem = &class;
+class(ArtemisEntitySystem);
 
 /**
  * Creates an entity system that uses the specified aspect as a matcher against entities.
  * @param aspect to match against entities
  */
-static bool ctor(void *ptr, va_list args)
+ArtemisEntitySystemRef method Ctor(ArtemisEntitySystemRef this, ArtemisAspectRef aspect)
 {
-    ArtemisEntitySystemRef this = ptr;     
-
     this->actives = CFCreate(CFBag, 64);
-    this->aspect = va_arg(args, ArtemisAspectRef);
+    this->aspect = aspect;
     this->systemIndex = ArtemisSystemIndexManagerGetIndexFor(ArtemisEntitySystem);
     this->allSet = ArtemisAspectGetAllSet(this->aspect);
     this->exclusionSet = ArtemisAspectGetExclusionSet(this->aspect);
@@ -44,7 +25,7 @@ static bool ctor(void *ptr, va_list args)
     this->dummy = ((Size(this->allSet) <= 0)
                     && (Size(this->oneSet) <= 0));
 
-    return true;
+    return this;
 }
 
 /**
@@ -52,7 +33,7 @@ static bool ctor(void *ptr, va_list args)
  */
 void ArtemisEntitySystemBegin(ArtemisEntitySystemRef this)
 {
-    (void*)this;
+    (ArtemisEntitySystemRef)this;
 }
 
 void ArtemisEntitySystemProcess(ArtemisEntitySystemRef this)
@@ -69,7 +50,7 @@ void ArtemisEntitySystemProcess(ArtemisEntitySystemRef this)
  */
 void ArtemisEntitySystemEnd(ArtemisEntitySystemRef this)
 {
-    (void*)this;
+    (ArtemisEntitySystemRef)this;
 }
 
 /**
@@ -80,8 +61,8 @@ void ArtemisEntitySystemEnd(ArtemisEntitySystemRef this)
  */
 void ArtemisEntitySystemProcessEntities(ArtemisEntitySystemRef this, CFBagRef entities)
 {
-    (void*)this;
-    (void*)entities;
+    (ArtemisEntitySystemRef)this;
+    (CFBagRef)entities;
 }
 
 /**
@@ -90,7 +71,7 @@ void ArtemisEntitySystemProcessEntities(ArtemisEntitySystemRef this, CFBagRef en
  */
 bool ArtemisEntitySystemCheckProcessing(ArtemisEntitySystemRef this)
 {
-    (void*)this;
+    (ArtemisEntitySystemRef)this;
     return true;
 }
 
@@ -99,7 +80,7 @@ bool ArtemisEntitySystemCheckProcessing(ArtemisEntitySystemRef this)
  */
 void ArtemisEntitySystemInitialize(ArtemisEntitySystemRef this)
 {
-    (void*)this;
+    (ArtemisEntitySystemRef)this;
 }
 
 /**
@@ -108,8 +89,8 @@ void ArtemisEntitySystemInitialize(ArtemisEntitySystemRef this)
  */
 void ArtemisEntitySystemInserted(ArtemisEntitySystemRef this, ArtemisEntityRef e)
 {
-    (void*)this;
-    (void*)e;
+    (ArtemisEntitySystemRef)this;
+    (ArtemisEntityRef)e;
 }
 
 /**
@@ -118,8 +99,8 @@ void ArtemisEntitySystemInserted(ArtemisEntitySystemRef this, ArtemisEntityRef e
  */
 void ArtemisEntitySystemRemoved(ArtemisEntitySystemRef this, ArtemisEntityRef e)
 {
-    (void*)this;
-    (void*)e;
+    (ArtemisEntitySystemRef)this;
+    (ArtemisEntityRef)e;
 }
 
 /**

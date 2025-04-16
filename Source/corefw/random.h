@@ -43,8 +43,6 @@
 #pragma once
 #include "class.h"
 #include "object.h"
-#include <limits.h>
-#include <stdbool.h>
 
 extern const CFClassRef CFRandom;
 typedef struct __CFRandom* CFRandomRef;

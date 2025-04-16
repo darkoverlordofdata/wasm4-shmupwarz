@@ -1,16 +1,13 @@
 #pragma once
 #include "../corefw/corefw.h" // IWYU pragma: keep
 #include "ArtemisManager.h"
-
 /**
 * @class ArtemisComponentManager
 */
 extern CFClassRef ArtemisComponentManager;
-
 typedef struct __ArtemisWorld*                  ArtemisWorldRef;
 typedef struct __ArtemisComponentPool*          ArtemisComponentPoolRef;
 typedef struct __ArtemisComponentTypeFactory*   ArtemisComponentTypeFactoryRef;
-
 
 typedef struct __ArtemisComponentManager {
     __ArtemisManager                    base;
@@ -27,6 +24,7 @@ typedef struct __ArtemisEntity*                 ArtemisEntityRef;
 typedef struct __ArtemisComponentType*          ArtemisComponentTypeRef;
 typedef struct __ArtemisWorld*                  ArtemisWorldRef;
 
+ArtemisComponentManagerRef method Ctor(ArtemisComponentManagerRef);
 void ArtemisComponentManagerInitialize(ArtemisComponentManagerRef);
 CFObjectRef ArtemisComponentManagerCreate(ArtemisComponentManagerRef, ArtemisEntityRef, CFClassRef);
 CFObjectRef ArtemisComponentManagerNewInstance(ArtemisComponentManagerRef, CFClassRef, bool);
@@ -40,26 +38,39 @@ void ArtemisComponentManagerClean(ArtemisComponentManagerRef);
 ArtemisComponentTypeFactoryRef ArtemisComponentManagerGetTypeFactory(ArtemisComponentManagerRef);
 void ArtemisComponentManagerSetWorld(ArtemisComponentManagerRef, ArtemisWorldRef);
 
-static inline void ArtemisComponentManagerAdded(ArtemisManagerRef ptr, ArtemisEntityRef e)
+/**
+ * NewArtemisComponentManager
+ * 
+ * alloc+ctor
+ */
+static inline ArtemisComponentManagerRef NewArtemisComponentManager()
 {
-    (void*)ptr;
-    (void*)e;
+    return Ctor((ArtemisComponentManagerRef)CFCreate(ArtemisComponentManager));
+}
+
+/**
+ * virtual functions
+ */
+ static inline void ArtemisComponentManagerAdded(ArtemisManagerRef ptr, ArtemisEntityRef e)
+{
+    (ArtemisManagerRef)ptr;
+    (ArtemisEntityRef)e;
 }
 
 static inline void ArtemisComponentManagerChanged(ArtemisManagerRef ptr, ArtemisEntityRef e)
 {
-    (void*)ptr;
-    (void*)e;
+    (ArtemisManagerRef)ptr;
+    (ArtemisEntityRef)e;
 }
 static inline void ArtemisComponentManagerEnabled(ArtemisManagerRef ptr, ArtemisEntityRef e)
 {
-    (void*)ptr;
-    (void*)e;
+    (ArtemisManagerRef)ptr;
+    (ArtemisEntityRef)e;
 }
 static inline void ArtemisComponentManagerDisabled(ArtemisManagerRef ptr, ArtemisEntityRef e)
 {
-    (void*)ptr;
-    (void*)e;
+    (ArtemisManagerRef)ptr;
+    (ArtemisEntityRef)e;
 }
 
 static inline void ArtemisComponentManagerDeleted(ArtemisManagerRef ptr, ArtemisEntityRef e)

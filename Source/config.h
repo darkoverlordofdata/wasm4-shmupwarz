@@ -6,11 +6,8 @@
  * @see https://wasm4.org/play/text-input
  */
  #pragma once
-#include "corefw/cfstring.h"
-#include "corefw/class.h"
 #include "corefw/corefw.h" // IWYU pragma: keep
 #include <stdint.h>
-#include "wasm4.h"
 
 extern CFClassRef Config;
 

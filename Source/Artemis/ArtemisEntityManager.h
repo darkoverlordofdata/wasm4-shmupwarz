@@ -7,10 +7,9 @@
  *  @class ArtemisEntityManager
  */
 extern CFClassRef ArtemisEntityManager;
-
-typedef struct __ArtemisEntityManager*  ArtemisEntityManagerRef;
 typedef struct __ArtemisWorld*          ArtemisWorldRef;
 typedef struct __ArtemisEntity*         ArtemisEntityRef;
+typedef struct __ArtemisIdentifierPool* ArtemisIdentifierPoolRef;
 
 typedef struct __ArtemisEntityManager {
     __ArtemisManager            base;
@@ -24,7 +23,9 @@ typedef struct __ArtemisEntityManager {
 
 } __ArtemisEntityManager;
 
+typedef struct __ArtemisEntityManager*  ArtemisEntityManagerRef;
 
+ArtemisEntityManagerRef method Ctor(ArtemisEntityManagerRef);
 ArtemisEntityRef ArtemisEntityManagerCreateEntityInstance(ArtemisEntityManagerRef, CFStringRef);
 bool ArtemisEntityManagerIsActive(ArtemisEntityManagerRef, ulong);
 bool ArtemisEntityManagerIsEnaled(ArtemisEntityManagerRef, ulong);
@@ -35,7 +36,10 @@ ulong ArtemisEntityManageGetTotalAdded(ArtemisEntityManagerRef);
 ulong ArtemisEntityManageGetTotalDeleted(ArtemisEntityManagerRef);
 void ArtemisEntityManageSetWorld(ArtemisEntityManagerRef, ArtemisWorldRef);
 
-
+static inline ArtemisEntityManagerRef NewArtemisEntityManager()
+{
+    return Ctor((ArtemisEntityManagerRef)CFCreate(ArtemisEntityManager));
+}
 
 static inline void ArtemisEntityManagerAdded(ArtemisManagerRef ptr, ArtemisEntityRef e)
 { 
@@ -47,8 +51,8 @@ static inline void ArtemisEntityManagerAdded(ArtemisManagerRef ptr, ArtemisEntit
 
 static inline void ArtemisEntityManagerChanged(ArtemisManagerRef ptr, ArtemisEntityRef e)
 {
-    (void*)ptr;
-    (void*)e;
+    (ArtemisManagerRef)ptr;
+    (ArtemisEntityRef)e;
 }
 
 static inline void ArtemisEntityManagerEnabled(ArtemisManagerRef ptr, ArtemisEntityRef e)
@@ -66,7 +70,7 @@ static inline void ArtemisEntityManagerDisabled(ArtemisManagerRef ptr, ArtemisEn
 static inline void ArtemisEntityManagerDeleted(ArtemisManagerRef ptr, ArtemisEntityRef e)
 {
     ArtemisEntityManagerRef this = (ArtemisEntityManagerRef)ptr;
-    CFBagSet(this->entities, (size_t)ArtemisEntityGetId(e), NULL);
+    CFBagSet(this->entities, (size_t)ArtemisEntityGetId(e), nullptr);
     Set(this->disabled, (int)ArtemisEntityGetId(e), false);
     ArtemisIdentifierPoolCheckIn(this->identifierPool, (size_t)ArtemisEntityGetId(e));
     this->active--;

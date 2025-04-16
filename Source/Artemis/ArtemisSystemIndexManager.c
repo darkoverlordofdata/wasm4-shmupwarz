@@ -1,24 +1,20 @@
-#include "artemis.h"
 /**
  * Used to generate a unique bit for each system.
  * Only used internally in EntitySystem.
  */
-typedef struct ArtemisSystemIndexManagerClass {
-    int         index;
-    CFMapRef    indices;
-} ArtemisSystemIndexManagerClass;
+#include "artemis.h"    // IWYU pragma: keep
 
-ArtemisSystemIndexManagerClass ArtemisSystemIndexManager = { .index = 0, .indices = NULL};
+ArtemisSystemIndexManagerClass ArtemisSystemIndexManager = { .index = 0, .indices = nullptr};
 
 
 ulong ArtemisSystemIndexManagerGetIndexFor(CFClassRef es) 
 {
-    if (ArtemisSystemIndexManager.indices == NULL) {
-        ArtemisSystemIndexManager.indices = CFCreate(CFMap, NULL);
+    if (ArtemisSystemIndexManager.indices == nullptr) {
+        ArtemisSystemIndexManager.indices = CFCreate(CFMap, nullptr);
     }
 
     CFIntRef index = CFMapGet(ArtemisSystemIndexManager.indices, es);
-    if (index == NULL) {
+    if (index == nullptr) {
         index = CFCreate(CFInt, ArtemisSystemIndexManager.index++);
         CFMapSet(ArtemisSystemIndexManager.indices, es, index);
     }

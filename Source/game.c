@@ -1,24 +1,11 @@
 #include "game.h"
 #include "clock.h"
 #include "config.h"
-#include "corefw/map.h"
-#include "corefw/object.h"
-#include "corefw/random.h"
-#include "corefw/printf.h"
 #include "player.h"
 #include "palette.h"
 #include "splash.h"
-#include "wasm4.h"
-#include <string.h>
 
-/**
- * Game class
- */
-static __CFClass class = {
-    .name = "Game",
-    .size = sizeof(__Game),
-};
-CFClassRef Game = &class;
+class(Game);
 
 extern unsigned long frameCounter;
 
@@ -38,6 +25,7 @@ GameRef method Ctor(GameRef this)
     this->config = NewConfig(this);
     this->clock = NewClock(this);
     this->player = NewPlayer(this);
+    this->world = NewArtemisWorld();
     SetOnTick(this->clock,  ^(ClockRef clock, GameRef this) {
         (ClockRef)clock;
         (GameRef)this;

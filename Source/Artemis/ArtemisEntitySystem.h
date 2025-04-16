@@ -4,12 +4,26 @@
  *  @class ArtemisEntitySystem
  */
 extern CFClassRef ArtemisEntitySystem;
-
-typedef struct __ArtemisEntitySystem*   ArtemisEntitySystemRef;
 typedef struct __ArtemisWorld*          ArtemisWorldRef;
 typedef struct __ArtemisAspect*         ArtemisAspectRef;
+
+typedef struct __ArtemisEntitySystem {
+    __CFObject          obj;
+    ulong               systemIndex;  
+    ArtemisWorldRef     world;
+    CFBagRef            actives;
+    ArtemisAspectRef    aspect;
+    CFBitVectorRef      allSet;
+    CFBitVectorRef      exclusionSet;
+    CFBitVectorRef      oneSet;
+    bool                passive;
+    bool                dummy;
+} __ArtemisEntitySystem;
+
+typedef struct __ArtemisEntitySystem*   ArtemisEntitySystemRef;
 typedef struct __ArtemisEntity*         ArtemisEntityRef;
 
+ArtemisEntitySystemRef method Ctor(ArtemisEntitySystemRef, ArtemisAspectRef);
 void ArtemisEntitySystemBegin(ArtemisEntitySystemRef);
 void ArtemisEntitySystemProcess(ArtemisEntitySystemRef);
 void ArtemisEntitySystemEnd(ArtemisEntitySystemRef);
@@ -31,4 +45,8 @@ bool ArtemisEntitySystemIsPassive(ArtemisEntitySystemRef);
 void ArtemisEntitySystemSetPassive(ArtemisEntitySystemRef, bool);
 CFBagRef ArtemisEntitySystemGetActive(ArtemisEntitySystemRef);
 
+static inline ArtemisEntitySystemRef NewArtemisEntitySystem(ArtemisAspectRef aspect)
+{
+    return Ctor((ArtemisEntitySystemRef)CFCreate(ArtemisEntitySystem), aspect);
+}
 

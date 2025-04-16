@@ -1,19 +1,10 @@
 #include "player.h"
-#include "corefw/cfstring.h"
 #include "wasm4.h"
 #include "corefw/corefw.h" // IWYU pragma: keep
-#include <string.h>
 #include "spaceship.h"
 #include "game.h"
 
-/**
- * Player instance variables
- */
- static __CFClass class = {
-	.name = "Player",
-	.size = sizeof(__Player),
-};
-CFClassRef Player = &class;
+class(Player);
 
 /**
  * Player 

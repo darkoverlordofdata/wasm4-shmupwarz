@@ -1,4 +1,3 @@
-#include "artemis.h"
 /**
  * The most raw entity system. It should not typically be used, but you can create your own
  * entity system handling by extending this. It is recommended that you use the other provided
@@ -7,27 +6,14 @@
  * @author Arni Arent
  *
  */
-typedef struct __ArtemisIdentifierPool {
-    __CFObject  obj;
-    CFBagRef    ids;
-    ulong       nextAvailableId;
-} __ArtemisIdentifierPool;
+#include "artemis.h"    // IWYU pragma: keep
 
-static struct __CFClass class = {
-    .name = "ArtemisIdentifierPool",
-    .size = sizeof(struct __ArtemisIdentifierPool),
-    .ctor = ctor,
-};
-CFClassRef ArtemisIdentifierPool = &class;
+class(ArtemisIdentifierPool);
 
-static bool ctor(void *ptr, va_list args)
+ArtemisIdentifierPoolRef method Ctor(ArtemisIdentifierPoolRef this)
 {
-    (void*)args;
-
-    ArtemisIdentifierPoolRef this = ptr;     
     this->ids = CFCreate(CFBag,64);
-
-    return true;
+    return this;
 }
 
 ulong ArtemisIdentifierPoolCheckOut(ArtemisIdentifierPoolRef this)

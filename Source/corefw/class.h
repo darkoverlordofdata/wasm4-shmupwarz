@@ -26,10 +26,10 @@
  */
 #pragma once
 #include <stddef.h>
-#include <stdbool.h>
 #include <stdint.h>
 #include <stdarg.h>
 
+#define class(x) static __CFClass class = {.name = #x,.size = sizeof(__##x)};CFClassRef x = &class;
 #define method __attribute__((overloadable))
 
 typedef struct __CFClass* CFClassRef;

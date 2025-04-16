@@ -1,4 +1,3 @@
-#include "artemis.h"
 /**
 * The primary instance for the framework. It contains all the managers.
 * 
@@ -9,46 +8,35 @@
 * @author Arni Arent
 * 
 */
-typedef struct __ArtemisComponentPool {
-    __CFObject  obj;
-    CFBagRef    pools;
-} __ArtemisComponentPool;
+#include "artemis.h"    // IWYU pragma: keep
 
-static struct __CFClass class = {
-    .name = "ArtemisComponentPool",
-    .size = sizeof(struct __ArtemisComponentPool),
-    .ctor = ctor,
-};
-CFClassRef ArtemisComponentPool = &class;
+class(ArtemisComponentPool);
 
-static bool ctor(void *ptr, va_list args)
+ArtemisComponentPoolRef method Ctor(ArtemisComponentPoolRef this)
 {
-    (void*)args;
-    ArtemisComponentPoolRef this = ptr;
-
-    this->pools = CFCreate(CFArray, CFCreate(CFArray, NULL), NULL);
-    return true;
+    this->pools = CFCreate(CFArray, CFCreate(CFArray, nullptr), nullptr);
+    return this;
 }
 
 CFObjectRef ArtemisComponentPoolObtain(ArtemisComponentPoolRef this, CFClassRef cls, ArtemisComponentTypeRef type)
 {
-    (void*)this;
-    (void*)cls;
-    (void*)type;
-    return NULL;
+    (ArtemisComponentPoolRef)this;
+    (CFClassRef)cls;
+    (ArtemisComponentTypeRef)type;
+    return nullptr;
 }
 
 void ArtemisComponentPoolFree(ArtemisComponentPoolRef this, CFObjectRef component, ArtemisComponentTypeRef type)
 {
-    (void*)this;
-    (void*)component;
-    (void*)type;
+    (ArtemisComponentPoolRef)this;
+    (CFObjectRef)component;
+    (ArtemisComponentTypeRef)type;
 }
 
 void ArtemisComponentPoolFreeByIndex(ArtemisComponentPoolRef pool, CFObjectRef component, ulong typeIndex)
 {
-    (void*)pool;
-    (void*)component;
-    (void*)typeIndex;
+    (ArtemisComponentPoolRef)pool;
+    (CFObjectRef)component;
+    (ulong)typeIndex;
 }
 

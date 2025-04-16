@@ -26,8 +26,6 @@ SOFTWARE.
 #include "random.h"
 #include "uuid.h"
 #include "cfstring.h"
-#include <limits.h>
-#include <stdbool.h>
 #include <string.h>
 
 /**
